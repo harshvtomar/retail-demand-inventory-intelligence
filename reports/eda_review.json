@@ -1,0 +1,22 @@
+{
+  "scope": "Nonrandom prefix sample: do not generalize to retailer",
+  "rows": 401730,
+  "series": 210,
+  "stores": 10,
+  "units": 210786,
+  "zero_rows": 299476,
+  "zero_pct": 74.54658601548303,
+  "priced_rows": 330309,
+  "priced_pct": 82.22164140094092,
+  "missing_price_rows": 71421,
+  "first_date": "2011-01-29",
+  "last_date": "2016-04-24",
+  "charts": 6,
+  "references_reconciled": [
+    "monthly_units",
+    "store_units",
+    "category_units",
+    "weekday_mean",
+    "zero_share"
+  ]
+}

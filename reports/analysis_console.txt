@@ -1,0 +1,1 @@
+{'queries_executed': 12, 'metrics': {'rows': 401730, 'units': 210786, 'series': 210, 'zero_share': 0.7454658601548304, 'priced_revenue': 778107.05, 'missing_price_rows': 71421}}

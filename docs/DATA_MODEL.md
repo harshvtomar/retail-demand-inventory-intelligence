@@ -1,0 +1,2 @@
+# Data model
+`sales` grain: `series_id,day_id` (unique). `calendar` day ID (unique). `prices` grain: `store_id,item_id,wm_yr_wk` (unique). `products` grain `item_id`; `stores` grain `store_id`. Materialized analytical table `daily_sales` (rebuilt with the pipeline) joins sales to calendar and left joins prices to preserve missing-price sales days. All grain preservation is checked by row-count reconciliation.

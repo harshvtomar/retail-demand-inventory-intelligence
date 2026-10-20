@@ -1,0 +1,104 @@
+{
+  "source": "Expected values derived from original M5 CSVs without reading the SQL database; optional final metrics compared to SQLite",
+  "sample_method": "First 3 series per store-department in source order; nonrandom/nonrepresentative",
+  "series": 210,
+  "stores": 10,
+  "departments": 7,
+  "daily_observations": 401730,
+  "observed_units": 210786,
+  "zero_unit_observations": 299476,
+  "missing_price_observations": 71421,
+  "priced_observations": 330309,
+  "priced_revenue_observed_only": 778107.05,
+  "queries_checked": 12,
+  "numeric_values_checked": 1222,
+  "all_queries_reconciled": true,
+  "results": [
+    {
+      "query": 1,
+      "verified": true,
+      "result_rows": 64,
+      "numeric_fields_checked": 64,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 2,
+      "verified": true,
+      "result_rows": 10,
+      "numeric_fields_checked": 10,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 3,
+      "verified": true,
+      "result_rows": 3,
+      "numeric_fields_checked": 3,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 4,
+      "verified": true,
+      "result_rows": 20,
+      "numeric_fields_checked": 20,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 5,
+      "verified": true,
+      "result_rows": 192,
+      "numeric_fields_checked": 192,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 6,
+      "verified": true,
+      "result_rows": 448,
+      "numeric_fields_checked": 448,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 7,
+      "verified": true,
+      "result_rows": 7,
+      "numeric_fields_checked": 14,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 8,
+      "verified": true,
+      "result_rows": 12,
+      "numeric_fields_checked": 12,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 9,
+      "verified": true,
+      "result_rows": 5,
+      "numeric_fields_checked": 5,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 10,
+      "verified": true,
+      "result_rows": 210,
+      "numeric_fields_checked": 420,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 11,
+      "verified": true,
+      "result_rows": 10,
+      "numeric_fields_checked": 30,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "query": 12,
+      "verified": true,
+      "result_rows": 2,
+      "numeric_fields_checked": 4,
+      "max_absolute_difference": 0.0
+    }
+  ],
+  "limitations": "Not total Walmart revenue; unpriced observations excluded; zero sales not confirmed stockouts; no causal claims",
+  "warehouse_core_metrics_reconciled": true
+}

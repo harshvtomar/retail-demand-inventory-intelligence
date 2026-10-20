@@ -1,0 +1,5 @@
+# Minimal dependencies for fixture-based GitHub Actions CI.
+# Genuine M5 source files are intentionally not accessible in public CI.
+pytest>=8,<10
+pandas>=2,<4
+matplotlib>=3.8,<4

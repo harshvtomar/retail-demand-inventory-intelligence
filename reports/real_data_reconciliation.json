@@ -1,0 +1,20 @@
+{
+  "real_source": "User-provided original M5 competition ZIP, validated SHA-256 in data/raw/source_manifest.json",
+  "sampling": "First 3 product series per store/department; not random or representative",
+  "source_series": 210,
+  "source_days": 1913,
+  "source_product_store_days": 401730,
+  "source_total_units": 210786,
+  "source_zero_unit_days": 299476,
+  "database_series": 210,
+  "database_product_store_days": 401730,
+  "database_total_units": 210786,
+  "database_zero_unit_days": 299476,
+  "stores": 10,
+  "departments": 7,
+  "unique_series_day_keys": true,
+  "left_join_preserved_grain_and_units": true,
+  "missing_price_days": 71421,
+  "priced_days": 330309,
+  "raw_vs_sql_reconciled": true
+}
