@@ -1,0 +1,91 @@
+# SupplyPulse Intelligence
+### Retail Demand Forecasting & Inventory Optimization — Session 1 data/SQL foundation
+
+**Real historical M5 dataset · Python · SQLite · 12 SQL analyses · 6 audited EDA charts · executable notebook · QA**
+
+SupplyPulse is an end-to-end retail analytics portfolio project. **Only the Session 1 analytical foundation exists so far**: authenticated-by-user M5 CSV import, strict file checks and hash logging, a reproducible relational warehouse, real-data exploratory reports, and automated tests. Future demand forecasting, replenishment simulations, Power BI, and deployment are **not yet built**.
+
+## Actual validated results (20 October 2026)
+The genuine-format data was supplied by the user in `m5-forecasting-accuracy.zip` after accepting Kaggle access terms. Its five ZIP members passed archive CRC checks. The importer recorded checksums and schema/row counts for three required CSVs.
+
+| Source file | Observed records |
+|---|---:|
+| `calendar.csv` | 1,969 calendar rows |
+| `sales_train_validation.csv` | 30,490 product-store series |
+| `sell_prices.csv` | 6,841,121 weekly item-store price rows |
+
+A **full streaming source-data audit** independently checked all **58,327,370 original daily sales values** across 30,490 unique product-store series, and all **6,841,121** selling-price records. It found 65,695,409 total original sales units and 39,777,094 zero-unit observations, with valid original date identifiers, unique sales series and store-item keys, nonnegative integer daily counts, and finite positive prices. Details: `reports/full_source_audit.json`. This is input validation, **not** a full-data warehouse or forecasting run.
+
+The **verified analysis sample is only 210 of the 30,490 product-store series**, first **3 per store and department** (all 10 stores and all 7 departments); this is deterministic but neither random nor statistically representative. Its 401,730 product-store-day observations span **2011-01-29 through 2016-04-24** (1,913 days).
+
+- Observed units (sample only): **210,786**.
+- Zero-unit days (sample only): **299,476** (74.55%).
+- Days with no observed matched weekly price: **71,421** (17.78%); these days are included in unit KPIs and excluded from calculated priced revenue.
+- Six Task 4 EDA charts regenerated with defensible per-series-day rates and properly labelled percentages; the notebook was re-executed with all 8 code cells successful. Monthly trend excludes the two partial months (2011-01, 2016-04). Read `reports/eda_business_review.md` for specific findings and limitations.
+- **12/12 SQL queries executed** against the real-data SQLite warehouse and **all 12 independently reconciled** with pandas calculations rebuilt from original M5 CSVs (1,222 numeric output values checked).
+- Raw source units and zero counts **independently reconciled** against the SQL fact table, with no change in joined row cardinality.
+- **51 automated unit/fixture tests passed** locally, including five tests for the full-source audit and five dedicated independent SQL reconciliation tests. These tests are distinct from the real-data validation above.
+
+Do not generalize these sample findings to the full M5 dataset or treat observed sales as unconstrained demand. No true inventory, lead-time, or stockout data is present. No real-world revenue uplift, company outcomes, or inventory savings are claimed.
+
+## Acquire the source data yourself
+Source: [M5 Forecasting — Accuracy (Kaggle)](https://www.kaggle.com/competitions/m5-forecasting-accuracy/data). Follow the competition's access and redistribution rules. The original raw CSVs **are intentionally NOT included** in this repository/package.
+
+After downloading the competition ZIP (or exporting the required files), run from project root:
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m scripts.download_m5 --archive ~/Downloads/m5-forecasting-accuracy.zip
+```
+
+Alternative authenticated CLI: `python3 -m pip install kaggle && kaggle auth login && python3 -m scripts.download_m5` (subject to competition permissions). No Kaggle credentials should be stored in the repository.
+
+The importer writes validated files to gitignored `data/raw/` and records SHA-256 fingerprints and import provenance in `data/raw/source_manifest.json`.
+
+## Reproduce real-data analysis
+
+```bash
+# deterministic, diverse *prefix* sample: first 3 product series per store/department
+python3 -m src.pipeline --sample-per-store-dept 3
+python3 -m src.analysis --database data/processed/m5.sqlite
+python3 -m scripts.verify_real_m5
+python3 -m scripts.reconcile_sql --database data/processed/m5.sqlite
+python3 -m scripts.audit_full_source
+python3 -m scripts.generate_eda
+python3 -m pytest -q
+# Jupyter: open notebooks/01_exploratory_analysis.ipynb and run all cells
+```
+
+For a smaller but biased first-in-file sample: `python3 -m src.pipeline --limit-series 100`. For a bigger prefix sample raise `--sample-per-store-dept`, bearing in mind SQLite currently imports all 6.8 million price records and occupies significant disk space. Avoid scaling to the full 58 million daily observations without first assessing memory, time, and disk needs. The local derived SQLite database is gitignored and excluded from this ZIP.
+
+## Architecture
+Original M5 CSVs (private, gitignored) → strict import + manifest → streaming wide-to-long transformation → normalized products, stores, calendar, weekly prices and unit sales tables → materialized `daily_sales` analytical table with a **left price join**, generated once per pipeline run → SQL and Python KPIs → independent raw-to-SQL reconciliation → executed charts/notebook.
+
+- `src/pipeline.py`: streaming M5 loader, optional stratified prefix sampling, SQL warehouse construction.
+- `src/analysis.py`: execute and export 12 real-data SQL queries.
+- `scripts/reconcile_sql.py`: independently recreate each report in pandas directly from the three raw CSVs; check 1,222 output numeric cells and core SQL totals, including matched-price revenue. No SQL tables are used to build the expected results.
+- `reports/sql_python_reconciliation.json`: committed summary of all 12 completed cross-checks.
+- `src/metrics.py`: canonical SQL-derived KPIs.
+- `scripts/download_m5.py`: user-authorized download/ZIP import, strict checks, SHA-256 provenance.
+- `scripts/verify_real_m5.py`: independent reconciliation of the exact selected raw series against the database.
+- `scripts/audit_full_source.py`: streaming full-input audit of all three original source CSVs, without publishing source data.
+- `scripts/generate_eda.py`: regenerate 6 sample-specific PNG charts, export their plotting tables, cross-check five plotted datasets against the independently reconciled Task 3 SQL outputs, and create a machine-readable and written business review.
+- `scripts/build_eda_notebook.py`: regenerate the reproducible, notebook-based narrative (then execute in Jupyter).
+- `reports/eda_business_review.md`: Task 4 evidence-based business interpretation, sample limitations, and interview-safe statements.
+- `reports/eda_review.json` and `reports/eda_tables/`: verified chart counts, scope, and six plotting-input datasets.
+- `reports/figures/`: 6 actual sample charts; `reports/tables/`: 12 query exports.
+- `notebooks/`: executed exploratory notebook with figures and analysis.
+- `tests/`: fixture-only tests plus test coverage of sampling, ingest and metrics.
+- `.github/workflows/ci.yml`: **configured but not yet run on GitHub**.
+
+See `PROJECT_STATE.md`, `SESSION_LOG.md`, `docs/METHODOLOGY.md`, and `docs/DATA_PROVENANCE.md` for evidence, assumptions, and Session 1 completion status.
+
+## Local tests versus GitHub CI
+The **51 local fixture tests** run with `python3 -m pytest -q` after installing dependencies. They do not download or redistribute M5 data. The GitHub Actions workflow uses `requirements-ci.txt` to install the actual test dependencies (pytest, pandas, matplotlib) and a noninteractive Matplotlib backend. No hosted CI result is available while this repository remains unpublished.
+
+## Outstanding before Session 2
+Create/publish the repository and run GitHub Actions CI. Tasks 1–4 (data import, full-source audit, independent SQL verification, and EDA business interpretation) are complete locally; a GitHub commit and GitHub CI have NOT been verified. Forecasting and inventory optimization belong to Sessions 3–4, not the currently delivered code.
+
+## Publishing to GitHub
+
+See [PUBLISH_GITHUB.md](PUBLISH_GITHUB.md) for safe setup and publication. The source and reports are ready to publish; repository creation, push and GitHub CI remain unverified until performed.
