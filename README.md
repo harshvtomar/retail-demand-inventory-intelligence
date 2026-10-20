@@ -76,16 +76,14 @@ Original M5 CSVs (private, gitignored) → strict import + manifest → streamin
 - `reports/figures/`: 6 actual sample charts; `reports/tables/`: 12 query exports.
 - `notebooks/`: executed exploratory notebook with figures and analysis.
 - `tests/`: fixture-only tests plus test coverage of sampling, ingest and metrics.
-- `.github/workflows/ci.yml`: **configured but not yet run on GitHub**.
+- `.github/workflows/ci.yml`: **verified on GitHub; 51 tests passed**.
 
 See `PROJECT_STATE.md`, `SESSION_LOG.md`, `docs/METHODOLOGY.md`, and `docs/DATA_PROVENANCE.md` for evidence, assumptions, and Session 1 completion status.
 
-## Local tests versus GitHub CI
-The **51 local fixture tests** run with `python3 -m pytest -q` after installing dependencies. They do not download or redistribute M5 data. The GitHub Actions workflow uses `requirements-ci.txt` to install the actual test dependencies (pytest, pandas, matplotlib) and a noninteractive Matplotlib backend. No hosted CI result is available while this repository remains unpublished.
+## Verified publication and CI (20 October 2026)
 
-## Outstanding before Session 2
-Create/publish the repository and run GitHub Actions CI. Tasks 1–4 (data import, full-source audit, independent SQL verification, and EDA business interpretation) are complete locally; a GitHub commit and GitHub CI have NOT been verified. Forecasting and inventory optimization belong to Sessions 3–4, not the currently delivered code.
+The Session 1 foundation is published at [harshvtomar/retail-demand-inventory-intelligence](https://github.com/harshvtomar/retail-demand-inventory-intelligence) on `main`, with all 70 approved source/report files. The first complete publication commit is [`6a0507a2`](https://github.com/harshvtomar/retail-demand-inventory-intelligence/commit/6a0507a2246600c8b0674bf3eaf030094f23d7df). The [hosted GitHub Actions run](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268) completed successfully: **51 tests passed in 3.63 seconds**.
 
-## Publishing to GitHub
+The fixture-based CI does **not** download private/restricted M5 CSVs; real-data integration and independent SQL/EDA checks were performed locally using the user-authorized dataset. The complete source files (30,490 sales series / 58,327,370 observed product-days) were audited; the analytical warehouse remains a **210-series, nonrandom sample**, and its findings cannot be extrapolated to all Walmart stores or customers.
 
-See [PUBLISH_GITHUB.md](PUBLISH_GITHUB.md) for safe setup and publication. The source and reports are ready to publish; repository creation, push and GitHub CI remain unverified until performed.
+**Session 1 tasks 1–7 are complete at the foundation level.** Actual demand forecasting models, inventory optimization, Power BI and live dashboards belong to future sessions. See [PROJECT_STATE.md](PROJECT_STATE.md), [SESSION_LOG.md](SESSION_LOG.md), [NEXT_SESSION_PROMPT.md](NEXT_SESSION_PROMPT.md), and [release verification](reports/RELEASE_READINESS.md).

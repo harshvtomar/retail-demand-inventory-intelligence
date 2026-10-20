@@ -1,21 +1,19 @@
-# SUPPLYPULSE — Session 2 continuation (do not restart)
+# SUPPLYPULSE INTELLIGENCE — WORK SESSION 2 (DO NOT RESTART)
 
-Repository plan: `harshvtomar/retail-demand-inventory-intelligence` (publication of the local Session 1 code is still pending). Start by inspecting actual remote `main` (if published), `README.md`, `PROJECT_STATE.md`, `SESSION_LOG.md`, and `reports/session1_summary.md`. DO NOT recreate or overwrite verified work. Verify existing local tests first.
+**Repository:** https://github.com/harshvtomar/retail-demand-inventory-intelligence
+**Verified Session 1 foundation commit:** `6a0507a2246600c8b0674bf3eaf030094f23d7df`
+**Hosted CI:** https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268 — successful, 51 fixture tests passed.
+**Execution:** ChatGPT Work, GPT-6 Medium thinking (if available), one focused five-hour session.
 
-The completed Session 1 foundation uses genuine user-provided M5 competition files kept out of Git and a deterministic NONRANDOM first-3-per-store-and-department sample (210 series, 401,730 observed days, 10 stores, 7 departments). The real source was checksum-verified; 12 SQL queries executed on that sample; six actual-data charts and the notebook were executed; 51 fixture tests passed; independently reconciled original units and zero days matched SQL. No full-population findings or causal business lift are claimed. Source rows must never be republished without permission.
+## Mandatory recovery
+1. Inspect the latest remote `main`, README.md, PROJECT_STATE.md, SESSION_LOG.md, reports/RELEASE_READINESS.md, and methodology. Preserve working code and verified artifacts.
+2. Run `python -m pip install -r requirements-ci.txt` and `python -m pytest -q` in a fresh clone. Verify GitHub Actions after any new commits.
+3. The original Walmart M5 competition data must be acquired by the user under authorized Kaggle access. Raw CSVs and credentials are gitignored and must not be redistributed or committed.
+4. The 30,490-series / 58,327,370-observation original source was **audited**, not loaded into a full warehouse. Real SQL and EDA findings use a deterministic, nonrandom sample of **210 series / 401,730 store-product-day rows** across ten stores and seven departments. Do not generalize sample KPIs or claim real stockouts or savings.
+5. Preserve the 12/12 independently reconciled SQL reports (1,222 numeric comparisons), six verified EDA figures, executed notebook and 51 passing tests.
 
-**Before Session 2**, complete remaining Session 1 actions: create/publish GitHub repo with source/derived docs only (no restricted raw CSVs or SQLite database), then run/verify GitHub Actions and record the commit SHA. Stop and state blockers if not possible.
+## Session 2 objective
+Develop advanced SQL analytics for store, category, seasonality and intermittent-demand patterns; defensible ABC/XYZ segmentation; and strictly historical, leakage-free forecast-ready features. Create independent SQL/Python reconciliations and meaningful regression tests. Consider expanding the sample only when justified by resources and reproducibility.
 
-**Session 2 objective:** Build advanced SQL reporting, carefully defined demand variability/seasonality analysis, store and category diagnostic comparisons, defensible ABC/XYZ segmentation *based only on permitted metrics*, and forecast-ready leakage-aware feature tables. Preserve tests, add verified SQL/Python reconciliation, clearly document deterministic sample bias, and consider a properly justified broader sample without claiming full data processing. Keep all new facts grounded in executed queries. Make reproducible Git commits and update session checkpoints.
-
-IMPORTANT: Session 1 task 2 also added `scripts/audit_full_source.py` and `reports/full_source_audit.json`; all 30,490 original series (58,327,370 daily data values) were audited, while the SQL warehouse contains only the 210-series sample. 37 fixture tests passed locally. Check these updated files before any future modification.
-
-### Updated 20 October 2026 — Session 1 Task 3 done
-The real-data SQL verification is finished: 12/12 reports and 1,222 numeric fields independently reconciled directly from the original M5 CSVs; 42/42 local tests passed. Preserve `scripts/reconcile_sql.py`, `reports/sql_python_reconciliation.json`, and the materialized analytic table implementation. Next unfinished Session 1 tasks are GitHub publication, GitHub Actions verification, and final provenance/release sign-off. Do not repeat Task 3 unless repository changes invalidate it.
-
-### Updated 20 October 2026 — Session 1 Task 4 done
-Six exploratory figures and their chart CSVs were regenerated against authentic M5 sample data, normalized for series-days where required, and checked against warehouse invariants / the source-verified SQL exports. The executed 8-cell notebook now explains all six chart limitations. Read `reports/eda_business_review.md` and `reports/eda_review.json` before introducing business interpretations. Added nine EDA regressions; **51/51** tests passed locally. Session 1 release is still blocked on GitHub repository publication and hosted CI confirmation. DO NOT claim deployed, public or CI-verified until observed.
-
-
-### Task 5–7 local continuation (20 October 2026)
-GitHub target was still nonexistent when rechecked; do not infer it was created. CI workflow was repaired to use `requirements-ci.txt`, and `scripts/publish_github.sh --check` passed. Fifty-one local tests passed after the change. Repository creation, publishing and checking the real GitHub Actions result are still mandatory before declaring Session 1 fully delivered. Keep `reports/RELEASE_READINESS.md` as a record of local verification and remaining remote-only work.
+## Expected deliverables
+Working code and executed reports; reproducible analytics and unit tests; clear metric definitions and caveats; updated README and checkpoint documents; meaningful committed changes to the **existing** repository; and verified hosted CI status. Do not claim future forecasting, inventory policies or live dashboards are already built.

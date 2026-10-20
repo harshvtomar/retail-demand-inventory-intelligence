@@ -1,6 +1,16 @@
 # SupplyPulse Intelligence — Session 1 checkpoint
 **As of 20 October 2026**
 
+## Verified GitHub publication and hosted CI (CURRENT)
+
+- Repository: [harshvtomar/retail-demand-inventory-intelligence](https://github.com/harshvtomar/retail-demand-inventory-intelligence), branch `main` (public).
+- First complete 70-file publication commit: `6a0507a2246600c8b0674bf3eaf030094f23d7df`.
+- [Actual GitHub Actions run](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268): **success, 51 passed in 3.63 seconds**, 0 failed. Workflow tests use fixtures without private Kaggle files.
+- 30,490 genuine original sales series / 58,327,370 daily source values audited; SQL/EDA warehouse contains **210 nonrandom series**, 401,730 daily observations. SQL: 12/12 reports and 1,222 numeric values independently reconciled. EDA: 6 audited figures and 8 executed notebook code cells.
+- Session 1 tasks 1–7 **complete**. No forecasting models, real inventory replenishment or live BI deployment exist yet.
+- Historical pre-publication notes farther below are retained as a time-stamped development record; this section supersedes them.
+
+
 ## Completed and verified in this session
 1. User-uploaded `m5-forecasting-accuracy.zip` checked by ZIP CRC (no corrupt entries); it contains all five official competition-named members.
 2. Authorized-by-user archive importer extracted only 3 required M5 CSVs into gitignored `data/raw/`; source hashes recorded in `source_manifest.json`.
@@ -25,7 +35,7 @@
 - Sampling is prefix-based within each store/department, NOT random, so observed sample averages, unit totals, and priced revenue cannot be extrapolated to the full retailer.
 - Historical sales are not true unconstrained demand; no observed inventory, supplier lead times, carrying costs or lost sales.
 - A local SQLite warehouse exists at `data/processed/m5.sqlite` (~500 MB, gitignored) and raw CSVs (~324 MB, gitignored). Neither appears in distributable ZIP.
-- Public GitHub repository has **not been created or populated**, so there is **no commit SHA** and **no GitHub Actions run**. The CI workflow is locally configured, not verified on GitHub.
+- Publication and hosted CI have been verified; see the current release summary at the beginning of this file.
 - No forecast models, service level optimization, real Power BI artifacts, dashboards or deployment yet.
 - Since competition access and redistribution conditions govern the original data, avoid committing the original Kaggle CSVs.
 
@@ -46,7 +56,9 @@ Read README.md for exact local commands. When starting Session 2, inspect remote
 - Added nine new EDA regression tests (`tests/test_eda_review.py`): **51 passed, 0 failed** locally. All findings are limited to the 210-series, nonrandom sample.
 - **Remaining before Session 1 release:** publish GitHub repository safely (no original M5 raw files or generated SQLite database), verify GitHub Actions CI and record commit SHA. No GitHub release or CI success claimed.
 
-## Task 5 publication preparation (20 October 2026)
+## Historical pre-publication work (superseded by current status above)
+
+### Task 5 publication preparation (20 October 2026)
 - Verified available GitHub account repositories: target `retail-demand-inventory-intelligence` not yet present; available connector has no create-repository action.
 - Added `PUBLISH_GITHUB.md` and `scripts/publish_github.sh` for a safe, repeatable publication after user creates an empty repository.
 - Confirmed 51 fixture-based pytest checks pass locally before packaging.

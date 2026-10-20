@@ -41,3 +41,9 @@
 - Corrected `.github/workflows/ci.yml`: all Python test imports (pandas, matplotlib and pytest) now available through `requirements-ci.txt`. The former workflow installed only pytest and risked missing dependency errors.
 - Improved publish preflight to test ignore patterns within a temporary Git repository. Added ignore exclusions for typical generated and secret files.
 - Locally ran 51 fixture tests successfully. Uploaded or pushed nothing to GitHub; hosted CI still unverified.
+
+## 20 October 2026 — Verified GitHub publication and hosted CI
+- Authenticated GitHub connector published all 70 approved source/report files to https://github.com/harshvtomar/retail-demand-inventory-intelligence.
+- Full publication commit: `6a0507a2246600c8b0674bf3eaf030094f23d7df`. The committed tree was inspected to exclude Kaggle raw CSVs, large SQLite databases and credential files.
+- [Hosted GitHub Actions workflow](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268) concluded successfully; job logs show **51 passed in 3.63 seconds**.
+- Session 2 should continue the existing `main` branch without rebuilding Session 1.

@@ -1,17 +1,15 @@
-# SupplyPulse Intelligence — Session 1 release readiness (2026-10-20)
+# SupplyPulse Intelligence — Session 1 verified release (20 October 2026)
 
-| Task | Evidence | Status |
+| Task | Verification | Status |
 |---|---|---|
-| 1. Acquire real Walmart M5 dataset | Source archive ZIP CRC; `source_manifest.json` kept out of Git; original source audit | Completed locally |
-| 2. Ingest and validate | 30,490 original series + 58,327,370 sales observations audited; 210-series sample warehouse, 401,730 daily rows | Completed locally (warehouse intentionally sampled) |
-| 3. SQL/Python reconciliation | 12 of 12 SQL result sets, 1,222 values independently checked; `reports/sql_python_reconciliation.json` | Completed locally |
-| 4. Exploratory data analysis | Six validated plots, executed notebook (8 code cells), business review | Completed locally |
-| 5. Publish repository | Target repository not created; GitHub connector cannot create repos | **BLOCKED on creating remote** |
-| 6. Verify GitHub Actions | Fixed CI workflow now installs dependencies; 51 local tests passed | **WAITING FOR REMOTE PUSH** |
-| 7. Final handoff documentation | README, release instructions, project log and Session 2 prompt updated | Prepared locally; hosted evidence/commit SHA pending |
+| 1. Obtain real M5 data | User-authorized archive; CRC, file hashes, original sources | Complete |
+| 2. Ingest and validate | 30,490 source series / 58,327,370 daily observations audited; 210 series / 401,730 sampled warehouse rows | Complete, sampled warehouse |
+| 3. SQL verification | 12/12 SQL reports independently reconciled; 1,222 numeric comparisons | Complete |
+| 4. EDA verification | Six plots, source CSVs and 8-cell executed notebook | Complete |
+| 5. GitHub publication | [70-file published commit](https://github.com/harshvtomar/retail-demand-inventory-intelligence/commit/6a0507a2246600c8b0674bf3eaf030094f23d7df) | Complete |
+| 6. GitHub Actions | [Successful CI run](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268); **51 passed in 3.63s** | Complete |
+| 7. Session handoff | README, state/log and Session 2 continuation updated | Complete |
 
-## Verification boundaries
-All observed business KPIs from the SQLite sample are limited to a deterministic nonrandom 210-series subset; do not extrapolate to Walmart or claim actual stockouts, inventory savings, causality, or overall realized revenue. The full source audit is not a full historical warehouse. All raw M5 CSVs, source manifest and the derived large SQLite database must remain out of the public repository. Only report GitHub CI as passed once an actual GitHub Actions run succeeds.
+**Limitations:** Observed sample metrics cover a deterministic *nonrandom* 210-series subset only. The original dataset audit is not a full analytical warehouse. M5 sales are not unconstrained demand; actual inventory, procurement lead times, stockouts and realized cost savings are not observed. Github CI is fixture-only and does not require Kaggle data. Later sessions must not portray forecasting, optimization, Power BI or live deployment as already delivered.
 
-## To unblock in one browser action
-Create an **empty** repository named `retail-demand-inventory-intelligence` under `harshvtomar` at https://github.com/new?name=retail-demand-inventory-intelligence . Do not initialize it with README, `.gitignore` or license. Next follow `PUBLISH_GITHUB.md` or authorize publishing in the ChatGPT thread. Once pushed, verify `main` commit SHA, GitHub Actions job status, and that no raw CSV or large SQLite file was published.
+**Repository:** https://github.com/harshvtomar/retail-demand-inventory-intelligence — continue via NEXT_SESSION_PROMPT.md without restarting.
