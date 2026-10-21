@@ -1,0 +1,92 @@
+{
+  "method": "Independent raw M5 CSV reconstruction, not derived SQLite warehouse",
+  "source_sample": "210 nonrandom prefix series; all 10 stores, seven departments",
+  "queries_verified": 14,
+  "numeric_cells_verified": 985600,
+  "results": [
+    {
+      "query": 1,
+      "rows": 19130,
+      "numeric_cells": 57390,
+      "max_difference": 7.105427357601002e-15
+    },
+    {
+      "query": 2,
+      "rows": 30,
+      "numeric_cells": 90,
+      "max_difference": 4.927687757838584e-09
+    },
+    {
+      "query": 3,
+      "rows": 640,
+      "numeric_cells": 1920,
+      "max_difference": 4.9923195022394395e-09
+    },
+    {
+      "query": 4,
+      "rows": 210,
+      "numeric_cells": 840,
+      "max_difference": 0.0
+    },
+    {
+      "query": 5,
+      "rows": 15,
+      "numeric_cells": 45,
+      "max_difference": 4.640522882626286e-09
+    },
+    {
+      "query": 6,
+      "rows": 20,
+      "numeric_cells": 60,
+      "max_difference": 4.98088281730702e-09
+    },
+    {
+      "query": 7,
+      "rows": 7,
+      "numeric_cells": 28,
+      "max_difference": 0.0
+    },
+    {
+      "query": 8,
+      "rows": 12,
+      "numeric_cells": 36,
+      "max_difference": 4.920635010563501e-09
+    },
+    {
+      "query": 9,
+      "rows": 210,
+      "numeric_cells": 420,
+      "max_difference": 4.952321278756111e-11
+    },
+    {
+      "query": 10,
+      "rows": 57540,
+      "numeric_cells": 115080,
+      "max_difference": 0.0
+    },
+    {
+      "query": 11,
+      "rows": 210,
+      "numeric_cells": 630,
+      "max_difference": 4.9921589084789275e-09
+    },
+    {
+      "query": 12,
+      "rows": 7,
+      "numeric_cells": 21,
+      "max_difference": 4.497641148404341e-11
+    },
+    {
+      "query": 13,
+      "rows": 2790,
+      "numeric_cells": 5580,
+      "max_difference": 0.0
+    },
+    {
+      "query": 14,
+      "rows": 401730,
+      "numeric_cells": 803460,
+      "max_difference": 4.285716670437978e-09
+    }
+  ]
+}

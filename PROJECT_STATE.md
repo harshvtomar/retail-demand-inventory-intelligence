@@ -1,3 +1,18 @@
+# SupplyPulse Intelligence — Session 2 publication checkpoint (22 October 2026)
+
+This section supersedes earlier historical Session 1 and local Session 2 publication notes below, while preserving the original development record.
+
+- **Source:** Genuine user-authorized Walmart M5 files; analytics use a deterministic **210-series nonrandom prefix sample** (401,730 series-day rows), not a representative retail-population sample. The complete source was audited in Session 1, not processed as a full-sized analytical warehouse.
+- **Session 2 SQL:** 14 advanced read-only reports in sql/advanced_queries.sql; original-CSV independent numeric reconciliation report covers 985,600 numeric cells with reported absolute tolerance ≤ 1e-6. Detailed record-level exports and raw original CSV files remain absent from GitHub.
+- **Analyses:** ABC unit-contribution classes 97 A / 63 B / 50 C; complete-week XYZ classes 2 X / 75 Y / 133 Z; intermittent categories 180 intermittent / 30 lumpy. These results are descriptive only and must be recomputed per training fold before predictive use.
+- **Feature design:** 401,730 one-day historical feature rows and 13,860 28-day forecast-origin records were produced locally. No forecasting model has yet been fitted or evaluated.
+- **Charts:** Six numerical SVG visualizations generated from verified aggregate data and the local historical histogram. The six original PNG renderings from the Session 2 ZIP have *not* been transferred to GitHub; SVGs are published instead.
+- **Tests:** 69 passed, 0 failed on independently executed fixture tests in the current environment (22 October 2026). This is separate from GitHub Actions verification.
+- **GitHub Actions:** Pending final publication CI verification; do not claim hosted success until the new commit's run succeeds.
+- **Next:** Session 3 — leakage-safe chronological validation, baseline and ML demand forecasting, with final 2016-03-28 through 2016-04-24 window untouched until test. Do not claim realized inventory savings or actual stockout observations.
+
+---
+
 # SupplyPulse Intelligence — Session 1 checkpoint
 **As of 20 October 2026**
 

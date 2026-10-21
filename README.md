@@ -87,3 +87,19 @@ The Session 1 foundation is published at [harshvtomar/retail-demand-inventory-in
 The fixture-based CI does **not** download private/restricted M5 CSVs; real-data integration and independent SQL/EDA checks were performed locally using the user-authorized dataset. The complete source files (30,490 sales series / 58,327,370 observed product-days) were audited; the analytical warehouse remains a **210-series, nonrandom sample**, and its findings cannot be extrapolated to all Walmart stores or customers.
 
 **Session 1 tasks 1–7 are complete at the foundation level.** Actual demand forecasting models, inventory optimization, Power BI and live dashboards belong to future sessions. See [PROJECT_STATE.md](PROJECT_STATE.md), [SESSION_LOG.md](SESSION_LOG.md), [NEXT_SESSION_PROMPT.md](NEXT_SESSION_PROMPT.md), and [release verification](reports/RELEASE_READINESS.md).
+
+## Session 2 — Advanced analytics and leakage-aware demand features (October 2026)
+
+Session 2 adds 14 advanced SQL reports, independently validated source-data reconstruction (985,600 checked numeric cells in the local real-data report), unit-based ABC analysis, complete-week CV-based XYZ segmentation, intermittent-demand diagnostics, leakage-safe historical lag/rolling features, and 28-day end-of-day forecast-origin labels. The original analysis covers **210 nonrandom sampled series and 401,730 product-store-day rows**, not the complete retail population. **69 fixture tests passed** independently in the local publication review; see GitHub Actions for the current hosted run.
+
+Six published vector charts are under **reports/session2/figures/** (SVG). Their underlying data are documented in **reports/session2/**; original ZIP PNG renderings remain in the local source archive, not on GitHub. No actual inventory positions, stockouts, causal impacts, forecast model performance, or financial savings are asserted.
+
+To run safely:
+
+~~~bash
+python -m pip install -r requirements-ci.txt
+python -m pytest -q
+~~~
+
+For optional real-M5 reproduction, obtain the competition CSVs lawfully and follow the existing README instructions for importing into gitignored **data/raw/**. Then run **python -m src.advanced_sql**, **python -m scripts.reconcile_session2**, and **python -m src.session2** against the sampled warehouse. For Session 3 instructions, read NEXT_SESSION_PROMPT.md.
+

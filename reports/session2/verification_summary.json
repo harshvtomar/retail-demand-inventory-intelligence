@@ -1,0 +1,32 @@
+{
+  "source": "M5 sampled warehouse (not population representative)",
+  "series": 210,
+  "daily_rows": 401730,
+  "time_start": "2011-01-29",
+  "time_end": "2016-04-24",
+  "units": 210786,
+  "abc_counts": {
+    "A": 97,
+    "B": 63,
+    "C": 50
+  },
+  "xyz_counts": {
+    "Z": 133,
+    "Y": 75,
+    "X": 2
+  },
+  "intermittent_counts": {
+    "Intermittent": 180,
+    "Lumpy": 30
+  },
+  "one_day_feature_rows": 401730,
+  "rolling_origin_rows": 13860,
+  "classification_metric": "unit-based ABC; CV of complete-week sales for XYZ",
+  "notes": [
+    "Nonrandom 210-series prefix sample; not representative of M5 population",
+    "Sales are observed units, not unconstrained demand or confirmed inventory availability",
+    "Full-horizon segmentation is descriptive; recompute on training history for forecasting",
+    "Price is never an input to modeled features without known-in-advance proof",
+    "Forecast origin at end of t predicts units t+1 through t+28; future label is evaluation-only"
+  ]
+}
