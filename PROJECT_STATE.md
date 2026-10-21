@@ -8,7 +8,7 @@ This section supersedes earlier historical Session 1 and local Session 2 publica
 - **Feature design:** 401,730 one-day historical feature rows and 13,860 28-day forecast-origin records were produced locally. No forecasting model has yet been fitted or evaluated.
 - **Charts:** Six numerical SVG visualizations generated from verified aggregate data and the local historical histogram. The six original PNG renderings from the Session 2 ZIP have *not* been transferred to GitHub; SVGs are published instead.
 - **Tests:** 69 passed, 0 failed on independently executed fixture tests in the current environment (22 October 2026). This is separate from GitHub Actions verification.
-- **GitHub Actions:** Pending final publication CI verification; do not claim hosted success until the new commit's run succeeds.
+- **Verified GitHub Actions:** https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39677007872 — succeeded for source commit 61374a6b89f61a1ee7178308781b6fe44515a0c8; runner log: **69 passed in 3.70s, 0 failed** (fixture tests; original Kaggle M5 files are not used in public CI).
 - **Next:** Session 3 — leakage-safe chronological validation, baseline and ML demand forecasting, with final 2016-03-28 through 2016-04-24 window untouched until test. Do not claim realized inventory savings or actual stockout observations.
 
 ---
@@ -87,3 +87,6 @@ Read README.md for exact local commands. When starting Session 2, inspect remote
 - Re-ran full local fixture tests: **51 passed, 0 failed**. Independently, the real M5 full-source audit and sampled SQL/EDA verification described above remain unchanged.
 - Release documentation and safe staging checks are ready. **Task 5 (publication) and Task 6 (GitHub CI) remain pending**; Task 7 documentation prepared locally but remote commit metadata and hosted CI sign-off cannot be completed until GitHub is accessible.
 - To unblock: user must create the empty GitHub repository on their account, then the existing GitHub connector can write project files. Alternatively, follow `PUBLISH_GITHUB.md` locally on a GitHub-authenticated Mac.
+
+## Release verification sign-off
+The published Session 2 GitHub source, SQL code, unit tests, documentation, and six SVG charts are ready for Session 3 continuation. Exactly 90 tracked files were independently counted on the published commit (70 retained + 20 added); five existing documentation files were updated, none deleted. The ZIP's original six PNG figures were not copied to GitHub; available SVG equivalents preserve the aggregate findings. The 985,600 real-M5 comparison count is from the preserved local evidence report and is **not** a GitHub Actions execution. See the new CI run on this documentation-only checkpoint separately.

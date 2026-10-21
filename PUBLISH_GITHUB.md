@@ -12,3 +12,5 @@ The repository **already exists**. To continue work, clone it using `git clone h
 The Session 2 source code, 14 SQL analyses, automated fixture tests, aggregate reports, methodology and six SVG chart equivalents are included in the updated repository. Sensitive and restricted raw files, original Kaggle CSVs, detailed row-level derived features, credentials, and generated SQLite databases have not been included. Original Session 2 PNGs are retained in the user-supplied ZIP but not in GitHub.
 
 Final commit and independently verified GitHub Actions URL are recorded at the top of PROJECT_STATE.md after the workflow completes. Never claim an unverified CI success.
+
+**Verified hosted Session 2 publication check:** [successful Actions run 39677007872](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39677007872) for release source commit `61374a6b89f61a1ee7178308781b6fe44515a0c8`: 69 passed, 0 failed. This documentation sign-off makes no changes to executable source.

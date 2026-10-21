@@ -4,7 +4,7 @@
 - Reconciled 14 advanced SQL analyses and checked that the archive reports 985,600 independent numeric comparisons against source CSVs. Raw M5 data not present in the public test environment.
 - Used connected GitHub write tools to stage source, test suite, documentation, and six faithful SVG chart equivalents based on the aggregate reports; the original PNG binary renders remain in the local ZIP and are not claimed as GitHub uploads.
 - Preserved all Session 1 files by building new Git trees on top of the existing main tree.
-- Hosted CI verification is pending and will be recorded as soon as independently observed.
+- **Verified GitHub Actions:** https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39677007872 — succeeded for source commit 61374a6b89f61a1ee7178308781b6fe44515a0c8; runner log: **69 passed in 3.70s, 0 failed** (fixture tests; original Kaggle M5 files are not used in public CI).
 
 
 ---
@@ -58,3 +58,6 @@
 - Full publication commit: `6a0507a2246600c8b0674bf3eaf030094f23d7df`. The committed tree was inspected to exclude Kaggle raw CSVs, large SQLite databases and credential files.
 - [Hosted GitHub Actions workflow](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39381480268) concluded successfully; job logs show **51 passed in 3.63 seconds**.
 - Session 2 should continue the existing `main` branch without rebuilding Session 1.
+
+### Session 2 publication and verification result
+Actual GitHub source commit: 61374a6b89f61a1ee7178308781b6fe44515a0c8. GitHub Actions run 39677007872 succeeded, reporting 69 passed in 3.70 seconds. Added 14 new source/data/documentation files and six SVG charts, updated five pre-existing documentation files. Preserved all Session 1 tracked files. Original six PNGs remain in the user-supplied archive and are not claimed as published. Session 3 can proceed from the published source and tests; no model training has been performed.

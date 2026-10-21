@@ -103,3 +103,5 @@ python -m pytest -q
 
 For optional real-M5 reproduction, obtain the competition CSVs lawfully and follow the existing README instructions for importing into gitignored **data/raw/**. Then run **python -m src.advanced_sql**, **python -m scripts.reconcile_session2**, and **python -m src.session2** against the sampled warehouse. For Session 3 instructions, read NEXT_SESSION_PROMPT.md.
 
+
+**Hosted Session 2 CI verification:** [GitHub Actions run 39677007872](https://github.com/harshvtomar/retail-demand-inventory-intelligence/actions/runs/39677007872) passed 69 fixture tests in 3.70 seconds for commit `61374a6b89f61a1ee7178308781b6fe44515a0c8`. This is independent of the recorded original-source SQL/Python reconciliation, which uses local authorized data unavailable to public CI.
